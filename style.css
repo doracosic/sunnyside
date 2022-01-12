@@ -85,7 +85,7 @@ header .Contain{
 }
 
 button{
-    font: inherit;
+    font: inherit; 
     background: transparent;
     border: 0;
     padding: 1rem;
