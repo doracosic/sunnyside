@@ -13,6 +13,10 @@
     white-space: nowrap;
     width: 1px;
 }
+img, svg {
+    display: block;
+    max-width: 100%;
+}
 
 html {
     font-size: 62.5%;
@@ -24,10 +28,10 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 5.6rem;
+    font-size: 3rem;
 }
 header{
-    background-color: #49BCF1;
+    background-color: #3ebfff;
     padding: 2rem;
    /* display: flex;
     justify-content: space-between;
@@ -38,9 +42,14 @@ header .Contain{
     justify-content: space-between;
     align-items: center;
 }
+
 .Contain{
-    max-width:144rem;
+    max-width: 144rem;
     margin: 0 auto;
+}
+
+header svg path {
+    fill: #262626;
 }
 
 .MainNavigation ul{
@@ -57,7 +66,7 @@ header .Contain{
     padding:0.8rem 1.5rem;
     display: block;
     font-size: 1.8rem;
-    color: white;
+    color: #262626;
     text-decoration: none;
 }
 .MainNavigation ul a:hover{
@@ -92,7 +101,44 @@ button{
     padding: 1rem;
 }
 
+.hero{
+   /*background-image: url(assets/mobile/image-header.jpg);
+    background-size:cover;
+    aspect-ratio: 375/438;
+    background-repeat: no-repeat;*/
 
+    display:flex;
+    color: #262626;
+    background-position: bottom;
+    text-transform: uppercase;
+    background-color: #3cbdfe;
+    word-break: break-all;
+    
+}
+
+.hero .Contain{
+    text-align: center;
+    padding:2rem;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    flex-grow:1;
+    background-image: url(assets/mobile/image-header.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    aspect-ratio: 375/438;
+
+
+}
+.hero svg{
+    margin-top: 2rem;
+}
+
+.hero svg path {
+    stroke: #262626;
+}
 
 @media (min-width:40em){
     button{
@@ -100,5 +146,24 @@ button{
     }
     .MainNavigation ul{
         display: flex;
+    }
+    .hero .Contain{
+        background-image: url(assets/desktop/image-header.jpg);
+        aspect-ratio: 1440/600;
+        background-repeat: no-repeat;
+        background-position: bottom center;
+        background-size: cover;
+        justify-content: flex-start;
+
+    }
+    
+    .hero h1{
+        margin-top: 2rem 0 5rem 0;
+    }
+    
+}
+@media (min-width: 50em) {
+    .hero h1 {
+        font-size: 5.6rem;
     }
 }
