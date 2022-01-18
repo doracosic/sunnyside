@@ -13,9 +13,16 @@
     white-space: nowrap;
     width: 1px;
 }
-img, svg {
+img {
     display: block;
     max-width: 100%;
+    height: auto;
+}
+svg {
+    display: block;
+}
+picture {
+    display: block;
 }
 
 html {
@@ -30,9 +37,21 @@ h1, h2, h3 {
 h1 {
     font-size: 3rem;
 }
+h2 {
+    font-size: clamp(2rem, 2.5rem + 1vw, 5rem);
+    line-height: 1;
+}
+p {
+    font-size: 1.8rem;
+    line-height: 1.6;
+}
+
 header{
-    background-color: #3ebfff;
     padding: 2rem;
+    background-color: #49bcf2;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
    /* display: flex;
     justify-content: space-between;
     align-items: center;*/
@@ -83,6 +102,7 @@ header svg path {
     border-radius:2.8rem;
     background-color: #fff;
     padding: 1rem 2rem;
+    margin-left: 2rem;
     transition: color 0.3s ease-out, background-color o.3s ease-out;
 
 }
@@ -144,6 +164,7 @@ button{
         display: grid;
         text-align: center;
         align-content: center;
+        justify-items: center;
         padding: 5rem 0;
         max-width: 70%;
     }
@@ -151,7 +172,42 @@ button{
     .Card > div p {
         margin: 2rem 0;
         font-size: 1.6rem;
+        line-height: 1.5;
     }
+    .Card a {
+        font-family: 'Fraunces', serif;
+        text-decoration: none;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        color: #24303E;
+        position: relative;
+    }
+
+    .Card a::after {
+        content: '';
+        display: block;
+        height: 10px;
+        background-color: #FAD400;
+        opacity: 0.2;
+        width: 120%;
+        border-radius: 1rem;
+        margin-top: -0.8rem;
+        transition: opacity 0.3s ease;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        z-index: -1;
+    }
+
+    .Card a:hover::after,
+    .Card a:focus-visible::after {
+        opacity: 1;
+    }
+
+    .Card:nth-child(3) a::after {
+        background-color: #FE7766;
+    }
+
 
 
 .Works {
@@ -204,6 +260,107 @@ button{
         color: inherit;
     }
 
+    .Testimonials{
+        text-align:center;
+        margin: 10rem 0;
+    }
+    .Testimonials h2 {
+        margin: 5rem 0;
+    }
+    
+    .Testimonials .Contain{
+        display: grid;
+        grid-auto-flow: r;
+    }
+    
+    .Testimonial figure{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 3rem;
+    }
+    
+    .Testimonials cite{
+        display: block;
+        font-family: 'Barlow', sans-serif;
+        font-size: 1rem;
+        font-style: normal;
+        color: #A7AAAD;
+    }
+
+    .Testimonials blockquote {
+        flex-grow: 1;
+        margin: 3rem 0;
+    }
+
+    .Testimonials img {
+        border-radius: 50%;
+    }
+
+    .Testimonials figcaption {
+        font-size: 1.8rem;
+        font-family: 'Fraunces', serif;
+        line-height: 2;
+    }
+
+    
+.Pictures {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .Pictures picture {
+        flex-basis: 50%;
+    }
+
+    .Pictures img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+
+
+    footer{
+        display: flex;
+        flex-direction: column;
+        padding: 5rem;
+        text-align: center;
+        align-items: center;
+        background-color: #90D4C6;
+        color:#2C7566
+    }
+    footer nav ul{
+        display: flex;
+        list-style-type: none;
+    }
+     footer nav:first-of-type{
+
+        margin: 5rem 0;
+     }
+     footer a{
+         display:block;
+         padding: 0 2rem;
+         font-size: 1.8em;
+         text-decoration: none;
+         color: #2C7566;
+         transition: color 0.3s ease-out;
+     }
+     footer path {
+        transition: fill 0.3s ease-out;
+    }
+    footer li svg {
+        flex-grow: 1;
+    }
+    footer a:focus-visible,
+    footer a:hover {
+        color: #fff;
+    }
+     footer a:focus-visible path,
+     footer a:hover path{
+         fill:#fff;
+     }
+
 
 @media (min-width: 30em) {
     .Works {
@@ -212,6 +369,7 @@ button{
 
     .Works .Card > div {
         padding-top: 100%;
+        justify-items: center;
     }
 }
 
@@ -223,6 +381,9 @@ button{
     header,
     .hero {
         background-color: #3ebfff;
+    }
+    .hero {
+        padding: 5rem;
     }
 
     .MainNavigation ul {
@@ -248,7 +409,38 @@ button{
     .Card > div {
         aspect-ratio: initial;
         text-align: left;
+        justify-items: start;
     }
+   
+    .Pictures {
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+
+    .Pictures img {
+        max-width: 36rem;
+    }
+
+    .Pictures picture {
+        flex-basis: auto;
+    }
+
+}
+
+
+@media (min-width: 50em) {
+    .Testimonials {
+        margin: 15rem 0;
+    }
+
+        .Testimonials .Contain {
+            grid-auto-flow: column;
+            grid-auto-columns: minmax(0, 1fr);
+        }
+
+        .Testimonials figure {
+            margin: 3rem 5rem;
+        }
 }
 
 @media (min-width: 70em) {
