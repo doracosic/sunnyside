@@ -52,9 +52,6 @@ header{
     position: fixed;
     width: 100%;
     z-index: 2;
-   /* display: flex;
-    justify-content: space-between;
-    align-items: center;*/
 }
 header .Contain{
     display:flex;
@@ -71,49 +68,81 @@ header svg path {
     fill: #262626;
 }
 
-.MainNavigation ul{
-    display:none;
+.MainNavigation {
+    position: relative;
+}
+
+.MainNavigation ul {
+    display: none;
+    opacity: 0;
     list-style-type: none;
-    /*display:flex;*/
-    align-items:center;
-}
-/*.MainNavigation{
-    justify-self: end;
-}*/  
-
-.MainNavigation ul a{
-    padding:0.8rem 1.5rem;
-    display: block;
-    font-size: 1.8rem;
-    color: #262626;
-    text-decoration: none;
-}
-.MainNavigation ul a:hover{
-    text-decoration: underline;
-}
-.MainNavigation ul a:focus-visible{
-    outline: 1px solid #24303E;
-}
-.MainNavigation .Contact{
-    font-family: 'Fraunces', serif;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    color: #24303E;
-    border-radius:2.8rem;
+    align-items: center;
+    position: absolute;
+    top: 100%;
+    right: 1rem;
     background-color: #fff;
-    padding: 1rem 2rem;
-    margin-left: 2rem;
-    transition: color 0.3s ease-out, background-color o.3s ease-out;
-
+    flex-direction: column;
+    min-width: calc(100vw - 5rem);
+    transform: translate(0, 5rem);
+    padding: 2rem;
+    transition: opacity 0.5s ease;
 }
 
-.MainNavigation .Contact:focus,
-.MainNavigation .Contact:hover{
-    color: #fff;
-    background-color: rgba(255,255,255,0.5);
-    text-decoration: none;
-}
+    .MainNavigation ul.is-visible {
+        display: flex;
+    }
 
+    .MainNavigation ul.is-active {
+        opacity: 1;
+    }
+
+    .MainNavigation ul::before {
+        display: block;
+        content: '';
+        background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 24L24 0V24H0Z' fill='white'/%3E%3C/svg%3E");
+        width: 2.4rem;
+        height: 2.4rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translateY(-100%);
+    }
+
+    .MainNavigation ul a {
+        display: block;
+        padding: 0.8rem 1.5rem;
+        margin: 1rem 0;
+        font-size: 1.8rem;
+        color: #262626;
+        text-decoration: none;
+    }
+
+
+    .MainNavigation ul a:hover {
+        text-decoration: underline;
+    }
+
+    .MainNavigation ul a:focus-visible {
+        outline: 1px solid #24303E;
+    }
+
+    .MainNavigation .Contact {
+        font-family: 'Fraunces', serif;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        color: #24303E;
+        background-color: #FBD600;
+        border-radius: 2.8rem;
+        padding: 2rem 3rem;
+        transition: color 0.3s ease-out, background-color 0.3s ease-out;
+    }
+
+    .MainNavigation .Contact:focus,
+    .MainNavigation .Contact:hover {
+        color: #fff;
+        background-color: #49bcf2;
+        text-decoration: none;
+    }
 button{
     font: inherit; 
     background: transparent;
@@ -386,10 +415,29 @@ button{
         padding: 5rem;
     }
 
+   
     .MainNavigation ul {
+        all: revert;
         display: flex;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
     }
 
+    .MainNavigation ul::before {
+        display: none;
+    }
+
+    .MainNavigation .Contact {
+        background-color: #fff;
+        margin-left: 2rem;
+    }
+
+    .MainNavigation .Contact:focus,
+    .MainNavigation .Contact:hover {
+        background-color: #000;
+    }
     .hero img {
         width: 144rem;
     }
